@@ -1,3 +1,11 @@
 body {
-    background-color: blue;
+    background-color: lemonchiffon;
+}
+
+.input-numero {
+    width: 50px;
+}
+
+.input-numero-salida {
+    width: 100px;
 }
