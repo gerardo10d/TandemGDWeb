@@ -1,5 +1,50 @@
-body {
-    background-color: lemonchiffon;
+/* fonts.google.com para usar fuentes de Google
+se seleccionan las fuentes deseadas,
+luego con la opción @import se copia el siguiente código: */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400&display=swap');
+
+html{
+    /* Fuente importada de fonts.google.com */
+    font-family: 'Source Sans Pro', sans-serif;
+    
+    /* Tipo de fuente de las normales de html */
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+    
+    /* Tamaño de fuente */
+    /* se puede trabajar con pt, px, large, small y otras */
+    font-size: large;
+
+    /* Negrita. Se puede trabajar con número 100, 200... o bold */
+    font-weight: 900;
+
+    color: #0A122A;
+
+    background-color: #E7DECD;
+
+}
+
+/* #fbfaf8 blanco
+#698f3f verde 
+#0a122a azul oscuro
+#e7decd rosado*/
+.header {
+    display: flex;
+    justify-content: center;
+    background-color: #0a122a;
+    color: #fbfaf8;
+}
+
+.datos-entrada {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.form-pavimento {
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+    /* width: 400px; */
 }
 
 .input-numero {
@@ -8,4 +53,19 @@ body {
 
 .input-numero-salida {
     width: 100px;
+}
+
+.titulos-ejes {
+    display: flex;
+    justify-content: space-around;
+}
+
+.fila-ejes {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fila-ejes input{
+    width: 70px;
+    margin: 1px 1px;
 }
