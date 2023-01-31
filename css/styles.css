@@ -27,11 +27,21 @@ html{
 #698f3f verde 
 #0a122a azul oscuro
 #e7decd rosado*/
-.header {
+.titulo {
     display: flex;
     justify-content: center;
     background-color: #0a122a;
     color: #fbfaf8;
+}
+
+.barra-nav {
+    background-color: #698f3f;
+    display: flex;
+    justify-content: space-around;
+}
+
+.barra-nav a {
+    color: 0a122a;
 }
 
 .datos-entrada {
@@ -43,7 +53,7 @@ html{
 .form-pavimento {
     display: flex;
     flex-wrap: wrap;
-    /* flex-direction: column; */
+    flex-direction: column;
     /* width: 400px; */
 }
 
