@@ -55,6 +55,7 @@ header {
     border-radius: 20px;
 }
 
+
 .barra-nav a {
     padding: 5px;
     margin: 5px;
@@ -83,6 +84,7 @@ header {
 .datos-entrada {
     display: flex;
     justify-content: space-around;
+    border: solid 2px;
 }
 
 
@@ -90,6 +92,7 @@ header {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    border: solid 2px;
     /* width: 400px; */
 }
 
@@ -104,14 +107,25 @@ header {
 .titulos-ejes {
     display: flex;
     justify-content: space-around;
+    border: solid 2px;
 }
 
-.fila-ejes {
+
+.form-ejes {
     display: flex;
-    justify-content: space-between;
+    border: solid 2px;
 }
 
-.fila-ejes input{
+
+.grupo-ejes {
+    /* width: 150px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 1px;
+}
+
+.grupo-ejes input{
     width: 70px;
-    margin: 1px 1px;
+    /* margin: 1px 1px; */
 }
