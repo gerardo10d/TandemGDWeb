@@ -69,7 +69,7 @@ header {
 
 
 .barra-nav a {
-    padding: 5px;
+    padding: 5px 10px;
     margin: 5px;
     border-radius: 10px;
     text-align: center;
@@ -91,6 +91,11 @@ header {
 
 .barra-nav a:active { /* Justo al dar clic */
     color: #96E6B3;
+}
+
+.barra-nav a:hover { /* Justo al dar clic */
+    transform: scale(1.1);
+    box-shadow: 1px 1px #F1FFFA;
 }
 
 .datos-entrada {
