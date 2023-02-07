@@ -23,12 +23,22 @@ html{
 
 }
 
+body {
+    margin: 0px;
+}
+
 
 /* Gris: #464E47
 Verde oscuro: #568259
 Verde medio: #96E6B3
 Verde claro: #CCFCCB
 Crema: #F1FFFA */
+
+ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
 
 header {
     position: sticky;
@@ -41,16 +51,18 @@ header {
     margin-bottom: 5px;
     background-color: #568259;
     color: #F1FFFA;
-    border: solid #464E47;
+    border: solid #0a122a;
     border-radius: 20px;
 }
 
 .barra-nav {
     background-color: #568259;
+    height: 40px;
     /* position: sticky;
     top: 10px; */
     display: flex;
     justify-content: space-around;
+    align-items: center;
     border: solid #0a122a;
     border-radius: 20px;
 }
