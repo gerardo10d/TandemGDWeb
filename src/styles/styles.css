@@ -1,0 +1,152 @@
+/* fonts.google.com para usar fuentes de Google
+se seleccionan las fuentes deseadas,
+luego con la opción @import se copia el siguiente código: */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400&display=swap');
+
+html{
+    /* Fuente importada de fonts.google.com */
+    font-family: 'Source Sans Pro', sans-serif;
+    
+    /* Tipo de fuente de las normales de html */
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+    
+    /* Tamaño de fuente */
+    /* se puede trabajar con pt, px, large, small y otras */
+    font-size: large;
+
+    /* Negrita. Se puede trabajar con número 100, 200... o bold */
+    /* font-weight: 900; */
+
+    color: #0A122A;
+
+    background-color: #F1FFFA;
+
+}
+
+body {
+    margin: 0px;
+}
+
+
+/* Gris: #464E47
+Verde oscuro: #568259
+Verde medio: #96E6B3
+Verde claro: #CCFCCB
+Crema: #F1FFFA */
+
+ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+header {
+    position: sticky;
+    top: 8px;
+}
+
+.titulo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+    background-color: #568259;
+    color: #F1FFFA;
+    border: solid #0a122a;
+    border-radius: 20px;
+}
+
+.barra-nav {
+    background-color: #568259;
+    height: 40px;
+    /* position: sticky;
+    top: 10px; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: solid #0a122a;
+    border-radius: 20px;
+}
+
+
+.barra-nav a {
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #0a122a;
+}
+
+.barra-nav a:link { /* Enlace sin visitar */
+    color: #F1FFFA;
+}
+
+.barra-nav a:visited { /* Enlace visitado */
+    color: #F1FFFA;
+}
+
+.barra-nav a:hover { /* ratón pasando encima */
+    color: #CCFCCB;
+}
+
+.barra-nav a:active { /* Justo al dar clic */
+    color: #96E6B3;
+}
+
+.barra-nav a:hover { /* Justo al dar clic */
+    transform: scale(1.1);
+    box-shadow: 1px 1px #F1FFFA;
+}
+
+.datos-entrada {
+    display: flex;
+    justify-content: space-around;
+    border: solid #0a122a;
+    border-radius: 20px;
+}
+
+
+.form-pavimento {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    border: solid 2px;
+    /* width: 400px; */
+}
+
+.input-numero {
+    width: 50px;
+}
+
+.input-numero-salida {
+    width: 100px;
+}
+
+.titulos-ejes {
+    display: flex;
+    justify-content: space-around;
+    /* border: solid 2px; */
+}
+
+
+.form-ejes {
+    display: flex;
+    gap: 15px;
+    /* border: solid 2px; */
+}
+
+
+.grupo-ejes {
+    width: 160px;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-around;
+    flex-wrap: wrap;
+    /* margin: 1px; */
+    /* border: solid 1px; */
+}
+
+.grupo-ejes input{
+    width: 70px;
+    /* margin: 1px 1px; */
+}
