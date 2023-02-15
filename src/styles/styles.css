@@ -53,7 +53,7 @@ ul {
   padding: 0px;
 }
 
-.titulo {
+/* .titulo {
   display: flex;
   justify-content: center;
   margin-bottom: 5px;
@@ -61,18 +61,18 @@ ul {
   color: #0a122a;
   border: solid #0a122a;
   border-radius: 20px;
-}
+} */
 
 .barra-nav {
   background-color: #96E6B3;
-  height: 40px;
+  height: 80px;
   /* position: sticky;
     top: 10px; */
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border: solid #0a122a;
-  border-radius: 20px;
+  border-bottom: solid #0a122a;
+  /* border-radius: 20px; */
 }
 
 .botonPrincipal {

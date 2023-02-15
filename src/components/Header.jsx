@@ -4,9 +4,6 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <header>
-      <div className="titulo">
-        <h1>Aplicación EduTandem</h1>
-      </div>
       <ul className="barra-nav">
         <li>
           <Link to="/">
