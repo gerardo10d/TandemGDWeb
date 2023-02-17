@@ -64,14 +64,16 @@ ul {
 } */
 
 .barra-nav {
-  background-color: #96E6B3;
-  height: 80px;
-  /* position: sticky;
-    top: 10px; */
   display: flex;
   justify-content: space-around;
   align-items: center;
+  padding: 10px;
+  background-color: #96E6B3;
   border-bottom: solid #0a122a;
+  box-shadow: 2px 2px #96e6b383;
+  /* height: 80px; */
+  /* position: sticky;
+    top: 10px; */
   /* border-radius: 20px; */
 }
 
