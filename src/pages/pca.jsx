@@ -1,31 +1,48 @@
+import InputPca from "components/InputPca";
+import InputPcaReps from "components/InputPcaReps";
 
 function Pca() {
   return (
     <section>
-      <h2>Programa para diseño de pavimento rígido con el método de la PCA</h2>
-      <div className="datos-entrada">
+      <h2 className="m-4 text-2xl text-center font-bold">
+        Programa para diseño de pavimento rígido con el método de la PCA
+      </h2>
+      <div className="flex justify-around border-2 border-gray-300 rounded-2xl p-2 m-5">
         <div>
-          <h3>Pavimento:</h3>
-          <form className="form-pavimento" action="">
+          <h3 className="text-center font-bold">Pavimento</h3>
+          <form
+            className="flex flex-wrap flex-col border-2 border-gray-200 rounded-md p-2"
+            action=""
+          >
             <table>
               <tbody>
                 <tr>
                   <td>
-                    <label for="dovelas">Dovelas:</label>
+                    <label htmlFor="dovelas">Dovelas:</label>
                   </td>
                   <td>
-                    <select name="dovelas" id="dovelas">
-                      <option value="Sí" selected>Sí</option>
+                    <select
+                      className="p-1 w-20 h-7 border border-gray-400 rounded-md focus:outline-none"
+                      name="dovelas"
+                      id="dovelas"
+                    >
+                      <option value="Sí" selected>
+                        Sí
+                      </option>
                       <option value="No">No</option>
                     </select>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <label for="bermas">Bermas:</label>
+                    <label htmlFor="bermas">Bermas:</label>
                   </td>
                   <td>
-                    <select name="bermas" id="bermas">
+                    <select
+                      className="p-1 w-20 h-7 border border-gray-400 rounded-md focus:outline-none"
+                      name="bermas"
+                      id="bermas"
+                    >
                       <option value="Sí">Sí</option>
                       <option value="No" selected>
                         No
@@ -35,12 +52,12 @@ function Pca() {
                 </tr>
                 <tr>
                   <td>
-                    <label for="modReaccion">Módulo de reacción:</label>
+                    <label htmlFor="modReaccion">Módulo de reacción:</label>
                   </td>
                   <td>
                     <input
                       required
-                      className="input-numero"
+                      className="p-1 appearance-none w-20 h-7 border border-gray-400 rounded-md focus:outline-none"
                       type="number"
                       name="modReaccion"
                       id="modReaccion"
@@ -57,12 +74,12 @@ function Pca() {
                 </tr>
                 <tr>
                   <td>
-                    <label for="modRotura">Módulo de rotura:</label>
+                    <label htmlFor="modRotura">Módulo de rotura:</label>
                   </td>
                   <td>
                     <input
                       required
-                      className="input-numero"
+                      className="p-1 appearance-none w-20 h-7 border border-gray-400 rounded-md focus:outline-none"
                       type="number"
                       name="modRotura"
                       id="modRotura"
@@ -79,12 +96,12 @@ function Pca() {
                 </tr>
                 <tr>
                   <td>
-                    <label for="espesor">Espesor de prueba:</label>
+                    <label htmlFor="espesor">Espesor de prueba:</label>
                   </td>
                   <td>
                     <input
                       required
-                      className="input-numero"
+                      className="p-1 appearance-none w-20 h-7 border border-gray-400 rounded-md focus:outline-none"
                       type="number"
                       name="espesor"
                       id="espesor"
@@ -109,134 +126,88 @@ function Pca() {
           </form>
         </div>
 
-        <div>
-          <h3>Tránsito:</h3>
-          <label for="unidades-carga">Unidades de la carga:</label>
-          <select name="unidades-carga" id="unidades-carga">
-            <option value="ton">ton</option>
-            <option value="kN">kN</option>
-            <option value="kip">kip</option>
-          </select>
-          <br />
-          <br />
-
-          <label for="FSC">Factor de seguridad de carga:</label>
-          <select name="FSC" id="FSC">
-            <option value="1.0">1.0</option>
-            <option value="1.1">1.1</option>
-            <option value="1.2">1.2</option>
-            <option value="1.3">1.3</option>
-            <option value="1.4">1.4</option>
-            <option value="1.5">1.5</option>
-          </select>
-          <br />
-          <br />
-
-          <div className="titulos-ejes">
-            <span>Ejes simples</span>
-            <span>Ejes tándem</span>
-            <span>Ejes trídem</span>
+        <div className="flex flex-col gap-4">
+          <h3 className="text-center font-bold">Tránsito</h3>
+          <div className="flex justify-center gap-8">
+            <div className="flex gap-2 ">
+              <label htmlFor="unidades-carga">Unidades de la carga:</label>
+              <select
+                className="p-1 w-20 h-7 border border-gray-400 rounded-md focus:outline-none"
+                name="unidades-carga"
+                id="unidades-carga"
+              >
+                <option value="ton">ton</option>
+                <option value="kN">kN</option>
+                <option value="kip">kip</option>
+              </select>
+            </div>
+            <div className="flex gap-2 ">
+              <label htmlFor="FSC">Factor de seguridad de carga:</label>
+              <select
+                className="p-1 w-20 h-7 border border-gray-400 rounded-md focus:outline-none"
+                name="FSC"
+                id="FSC"
+              >
+                <option value="1.0">1.0</option>
+                <option value="1.1">1.1</option>
+                <option value="1.2">1.2</option>
+                <option value="1.3">1.3</option>
+                <option value="1.4">1.4</option>
+                <option value="1.5">1.5</option>
+              </select>
+            </div>
           </div>
-
-          <form className="form-ejes" action="">
-            <div className="grupo-ejes">
-              <span>Carga</span>
-              <span># Ejes</span>
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
+          <form className="flex gap-3" action="">
+            <div className="flex flex-col items-center border-2 border-gray-200 rounded-md p-2">
+              <span>Ejes simples</span>
+              <div className="flex gap-1">
+                <InputPca />
+                <InputPcaReps />
+              </div>
             </div>
-            <div className="grupo-ejes">
-              <span>Carga</span>
-              <span># Ejes</span>
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
+            <div className="flex flex-col items-center border-2 border-gray-200 rounded-md p-2">
+              <span>Ejes tándem</span>
+              <div className="flex gap-1">
+                <InputPca />
+                <InputPcaReps />
+              </div>
             </div>
-            <div className="grupo-ejes">
-              <span>Carga</span>
-              <span># Ejes</span>
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
-              <input type="number" min="0" />
+            <div className="flex flex-col items-center border-2 border-gray-200 rounded-md p-2">
+              <span>Ejes trídem</span>
+              <div className="flex gap-1">
+                <InputPca />
+                <InputPcaReps />
+              </div>
             </div>
           </form>
         </div>
       </div>
 
-      <h3>Datos de salida:</h3>
-      <label for="dfatiga">Daño por fatiga:</label>
-      <input
-        className="input-numero-salida"
-        type="number"
-        name="dfatiga"
-        id="dfatiga"
-        disabled
-      />
-      <br />
-      <br />
-      <label for="derosion">Daño por erosión:</label>
-      <input
-        className="input-numero-salida"
-        type="number"
-        name="derosion"
-        id="derosion"
-        disabled
-      />
+      <h3 className="text-center font-bold">Datos de salida</h3>
+      <div className="flex justify-center gap-8">
+        <div className="flex flex-col items-center">
+          <label htmlFor="dfatiga">Daño por fatiga:</label>
+          <input
+            className="p-1 appearance-none w-28 h-7 border border-gray-400 rounded-md focus:outline-none"
+            type="number"
+            name="dfatiga"
+            id="dfatiga"
+            disabled
+          />
+        </div>
+        <div className="flex flex-col items-center">
+          <label htmlFor="derosion">Daño por erosión:</label>
+          <input
+            className="p-1 appearance-none w-28 h-7 border border-gray-400 rounded-md focus:outline-none"
+            type="number"
+            name="derosion"
+            id="derosion"
+            disabled
+          />
+        </div>
+      </div>
     </section>
   );
 }
-
 
 export default Pca;

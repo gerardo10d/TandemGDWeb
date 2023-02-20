@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer>Aplicación web desarrollada por ing. Gerardo Andrés Dorado Jurado. 2023</footer>
+    <footer className='bg-green-700 p-3'>Aplicación web desarrollada por ing. Gerardo Andrés Dorado Jurado. 2023</footer>
   )
 }
 
