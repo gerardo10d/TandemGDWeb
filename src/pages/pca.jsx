@@ -1,3 +1,4 @@
+
 function Pca() {
   return (
     <section>
@@ -14,7 +15,7 @@ function Pca() {
                   </td>
                   <td>
                     <select name="dovelas" id="dovelas">
-                      <option value="Sí">Sí</option>
+                      <option value="Sí" selected>Sí</option>
                       <option value="No">No</option>
                     </select>
                   </td>
@@ -24,7 +25,7 @@ function Pca() {
                     <label for="bermas">Bermas:</label>
                   </td>
                   <td>
-                    <select name="bermas" id="bermas" sele>
+                    <select name="bermas" id="bermas">
                       <option value="Sí">Sí</option>
                       <option value="No" selected>
                         No
@@ -34,20 +35,20 @@ function Pca() {
                 </tr>
                 <tr>
                   <td>
-                    <label for="mod-reaccion">Módulo de reacción:</label>
+                    <label for="modReaccion">Módulo de reacción:</label>
                   </td>
                   <td>
                     <input
                       required
                       className="input-numero"
                       type="number"
-                      name="mod-reaccion"
-                      id="mod-reaccion"
+                      name="modReaccion"
+                      id="modReaccion"
                       min="0"
                     />
                   </td>
                   <td>
-                    <select name="unidades-k" id="unidades-k">
+                    <select name="unidadesK" id="unidadesK">
                       <option value="MPa/m">MPa/m</option>
                       <option value="pci">pci</option>
                       <option value="kg/cm3">kg/cm3</option>
@@ -56,15 +57,15 @@ function Pca() {
                 </tr>
                 <tr>
                   <td>
-                    <label for="mod-rotura">Módulo de rotura:</label>
+                    <label for="modRotura">Módulo de rotura:</label>
                   </td>
                   <td>
                     <input
                       required
                       className="input-numero"
                       type="number"
-                      name="mod-rotura"
-                      id="mod-rotura"
+                      name="modRotura"
+                      id="modRotura"
                       min="0"
                     />
                   </td>
@@ -110,7 +111,7 @@ function Pca() {
 
         <div>
           <h3>Tránsito:</h3>
-          <label for="unidades-carga">Unidades de la carga</label>
+          <label for="unidades-carga">Unidades de la carga:</label>
           <select name="unidades-carga" id="unidades-carga">
             <option value="ton">ton</option>
             <option value="kN">kN</option>
@@ -119,7 +120,7 @@ function Pca() {
           <br />
           <br />
 
-          <label for="FSC">Factor de seguridad de carga</label>
+          <label for="FSC">Factor de seguridad de carga:</label>
           <select name="FSC" id="FSC">
             <option value="1.0">1.0</option>
             <option value="1.1">1.1</option>
@@ -236,5 +237,6 @@ function Pca() {
     </section>
   );
 }
+
 
 export default Pca;
