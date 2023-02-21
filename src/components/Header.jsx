@@ -13,28 +13,28 @@ const Header = () => {
         </li>
         <li>
           <Link to="/pca">
-            <button className="py-1.5 px-2.5 m-1.5 rounded-lg text-center text-white bg-gray-900 hover:bg-blue-800 hover:scale-110">
+            <button className="py-1.5 px-2.5 m-1.5 rounded-lg text-center text-white bg-gray-900 hover:bg-indigo-900 hover:scale-110">
               Diseño PCA
             </button>
           </Link>
         </li>
         <li>
           <Link to="/flujolibre">
-            <button className="py-1.5 px-2.5 m-1.5 rounded-lg text-center text-white bg-gray-900 hover:bg-blue-800 hover:scale-110">
+            <button className="py-1.5 px-2.5 m-1.5 rounded-lg text-center text-white bg-gray-900 hover:bg-indigo-900 hover:scale-110">
               Diseño Flujo Libre
             </button>
           </Link>
         </li>
         <li>
           <Link to="/suelossucs">
-            <button className="py-1.5 px-2.5 m-1.5 rounded-lg text-center text-white bg-gray-900 hover:bg-blue-800 hover:scale-110">
+            <button className="py-1.5 px-2.5 m-1.5 rounded-lg text-center text-white bg-gray-900 hover:bg-indigo-900 hover:scale-110">
               Clasificación SUCS
             </button>
           </Link>
         </li>
         <li>
           <Link to="/porticosconc">
-            <button className="py-1.5 px-2.5 m-1.5 rounded-lg text-center text-white bg-gray-900 hover:bg-blue-800 hover:scale-110">
+            <button className="py-1.5 px-2.5 m-1.5 rounded-lg text-center text-white bg-gray-900 hover:bg-indigo-900 hover:scale-110">
               Pórticos de concreto
             </button>
           </Link>
