@@ -1,7 +1,19 @@
 import InputPca from "components/InputPca";
 import InputPcaReps from "components/InputPcaReps";
 
-function Pca() {
+import React, { useState } from "react";
+
+const Pca = () => {
+  
+  const [k, setK] = useState(0);
+  const [Df, setDf] = useState();
+
+
+  const enviarResultado = () => {
+    // console.log("El valor del módulo de reacción es: ", k);
+    setDf(2*k);
+  };
+
   return (
     <section>
       <h2 className="m-4 text-2xl text-center font-bold">
@@ -22,13 +34,12 @@ function Pca() {
                   </td>
                   <td>
                     <select
+                      defaultValue={"Sí"}
                       className="p-1 w-20 h-7 border border-gray-400 rounded-md focus:outline-none"
                       name="dovelas"
                       id="dovelas"
                     >
-                      <option value="Sí" selected>
-                        Sí
-                      </option>
+                      <option value="Sí">Sí</option>
                       <option value="No">No</option>
                     </select>
                   </td>
@@ -39,14 +50,13 @@ function Pca() {
                   </td>
                   <td>
                     <select
+                      defaultValue={"No"}
                       className="p-1 w-20 h-7 border border-gray-400 rounded-md focus:outline-none"
                       name="bermas"
                       id="bermas"
                     >
                       <option value="Sí">Sí</option>
-                      <option value="No" selected>
-                        No
-                      </option>
+                      <option value="No">No</option>
                     </select>
                   </td>
                 </tr>
@@ -62,6 +72,9 @@ function Pca() {
                       name="modReaccion"
                       id="modReaccion"
                       min="0"
+                      onChange={(e) => {
+                        setK(e.target.value);
+                      }}
                     />
                   </td>
                   <td>
@@ -117,7 +130,9 @@ function Pca() {
                 </tr>
                 <tr>
                   <td>
-                    <button type="submit">Enviar</button>
+                    <button type="button" onClick={enviarResultado}>
+                      Enviar
+                    </button>
                     <button type="reset">Reset</button>
                   </td>
                 </tr>
@@ -192,6 +207,7 @@ function Pca() {
             type="number"
             name="dfatiga"
             id="dfatiga"
+            value={Df}
             disabled
           />
         </div>
@@ -208,6 +224,6 @@ function Pca() {
       </div>
     </section>
   );
-}
+};
 
 export default Pca;
