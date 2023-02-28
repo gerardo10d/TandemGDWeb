@@ -1,11 +1,16 @@
 import InputPca from "components/InputPca";
 import InputPcaReps from "components/InputPcaReps";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Pca = () => {
   const [k, setK] = useState(0);
   const [Df, setDf] = useState();
+  const [filasEjes, setfilasEjes] = useState(3);
+
+  useEffect(() => {
+    
+  }, [filasEjes])
 
   const enviarResultado = () => {
     // console.log("El valor del módulo de reacción es: ", k);
@@ -119,10 +124,19 @@ const Pca = () => {
             </select>
           </label>
           <div className="flex justify-center gap-8">
-            <button className="bg-green-700 text-white rounded-lg px-3" type="button" onClick={enviarResultado}>
+            <button
+              className="bg-green-700 text-white rounded-lg px-3"
+              type="button"
+              onClick={enviarResultado}
+            >
               Enviar
             </button>
-            <button className="bg-gray-800 text-white rounded-lg px-3" type="reset">Reset</button>
+            <button
+              className="bg-gray-800 text-white rounded-lg px-3"
+              type="reset"
+            >
+              Reset
+            </button>
           </div>
         </form>
 
@@ -131,10 +145,10 @@ const Pca = () => {
             Cargas y repeticiones del tránsito
           </h3>
           <div className="flex justify-center gap-10">
-            <div className="flex gap-2 ">
-              <label htmlFor="unidades-carga">Unidades de la carga:</label>
+            <label htmlFor="unidades-carga">
+              Unidades de la carga:
               <select
-                className="p-1 w-20 border border-gray-400 rounded-md focus:outline-none"
+                className="p-1 mx-2 w-20 border border-gray-400 rounded-md focus:outline-none"
                 name="unidades-carga"
                 id="unidades-carga"
               >
@@ -142,11 +156,12 @@ const Pca = () => {
                 <option value="kN">kN</option>
                 <option value="kip">kip</option>
               </select>
-            </div>
-            <div className="flex gap-2 ">
-              <label htmlFor="FSC">Factor de seguridad de carga:</label>
+            </label>
+
+            <label htmlFor="FSC">
+              Factor de seguridad de carga:
               <select
-                className="p-1 w-20 border border-gray-400 rounded-md focus:outline-none"
+                className="p-1 mx-2 w-20 border border-gray-400 rounded-md focus:outline-none"
                 name="FSC"
                 id="FSC"
               >
@@ -157,14 +172,69 @@ const Pca = () => {
                 <option value="1.4">1.4</option>
                 <option value="1.5">1.5</option>
               </select>
-            </div>
+            </label>
+
+            <label htmlFor="filas-carga">
+              Número de filas de ejes:
+              <input
+                required
+                className="p-1 mx-2 appearance-none w-20 border border-gray-400 rounded-md focus:outline-none"
+                type="number"
+                name="filas-carga"
+                id="filas-carga"
+                defaultValue={3}
+                min={3}
+                max={20}
+                onChange={(e) => {
+                  setfilasEjes(e.target.value);
+                }}
+              />
+            </label>
           </div>
           <form className="flex justify-center gap-10" action="">
             <div className="flex flex-col items-center border-2 border-gray-200 rounded-md p-2">
               <span>Ejes simples</span>
               <div className="flex gap-1">
-                <InputPca />
-                <InputPcaReps />
+                {/* Input de carga de eje */}
+                <div className="flex flex-col items-center gap-y-0.5">
+                  <span>Carga</span>
+                  <input
+                    className="p-1 appearance-none w-20 h-7 border border-gray-400 rounded-md focus:outline-none"
+                    type="number"
+                    min="0"
+                  />
+                  <input
+                    className="p-1 appearance-none w-20 h-7 border border-gray-400 rounded-md focus:outline-none"
+                    type="number"
+                    min="0"
+                  />
+                  <input
+                    className="p-1 appearance-none w-20 h-7 border border-gray-400 rounded-md focus:outline-none"
+                    type="number"
+                    min="0"
+                  />
+                  {}
+                </div>
+
+                {/* Input de repeticiones de ejes */}
+                <div className="flex flex-col items-center gap-y-0.5">
+                  <span># Ejes</span>
+                  <input
+                    className="p-1 appearance-none w-28 h-7 border border-gray-400 rounded-md focus:outline-none"
+                    type="number"
+                    min="0"
+                  />
+                  <input
+                    className="p-1 appearance-none w-28 h-7 border border-gray-400 rounded-md focus:outline-none"
+                    type="number"
+                    min="0"
+                  />
+                  <input
+                    className="p-1 appearance-none w-28 h-7 border border-gray-400 rounded-md focus:outline-none"
+                    type="number"
+                    min="0"
+                  />
+                </div>
               </div>
             </div>
             <div className="flex flex-col items-center border-2 border-gray-200 rounded-md p-2">
