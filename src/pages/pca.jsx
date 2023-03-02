@@ -1,16 +1,12 @@
-import InputPca from "components/InputPca";
+import InputPcaF from "components/InputPcaF";
 import InputPcaReps from "components/InputPcaReps";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 const Pca = () => {
   const [k, setK] = useState(0);
   const [Df, setDf] = useState();
   const [filasEjes, setfilasEjes] = useState(3);
-
-  useEffect(() => {
-    
-  }, [filasEjes])
 
   const enviarResultado = () => {
     // console.log("El valor del módulo de reacción es: ", k);
@@ -198,57 +194,46 @@ const Pca = () => {
                 {/* Input de carga de eje */}
                 <div className="flex flex-col items-center gap-y-0.5">
                   <span>Carga</span>
-                  <input
-                    className="p-1 appearance-none w-20 h-7 border border-gray-400 rounded-md focus:outline-none"
-                    type="number"
-                    min="0"
-                  />
-                  <input
-                    className="p-1 appearance-none w-20 h-7 border border-gray-400 rounded-md focus:outline-none"
-                    type="number"
-                    min="0"
-                  />
-                  <input
-                    className="p-1 appearance-none w-20 h-7 border border-gray-400 rounded-md focus:outline-none"
-                    type="number"
-                    min="0"
-                  />
-                  {}
+                  <InputPcaF filasEjes={filasEjes} />
                 </div>
 
                 {/* Input de repeticiones de ejes */}
                 <div className="flex flex-col items-center gap-y-0.5">
                   <span># Ejes</span>
-                  <input
-                    className="p-1 appearance-none w-28 h-7 border border-gray-400 rounded-md focus:outline-none"
-                    type="number"
-                    min="0"
-                  />
-                  <input
-                    className="p-1 appearance-none w-28 h-7 border border-gray-400 rounded-md focus:outline-none"
-                    type="number"
-                    min="0"
-                  />
-                  <input
-                    className="p-1 appearance-none w-28 h-7 border border-gray-400 rounded-md focus:outline-none"
-                    type="number"
-                    min="0"
-                  />
+                  <InputPcaReps filasEjes={filasEjes} />
                 </div>
               </div>
             </div>
             <div className="flex flex-col items-center border-2 border-gray-200 rounded-md p-2">
               <span>Ejes tándem</span>
               <div className="flex gap-1">
-                <InputPca />
-                <InputPcaReps />
+                {/* Input de carga de eje */}
+                <div className="flex flex-col items-center gap-y-0.5">
+                  <span>Carga</span>
+                  <InputPcaF filasEjes={filasEjes} />
+                </div>
+
+                {/* Input de repeticiones de ejes */}
+                <div className="flex flex-col items-center gap-y-0.5">
+                  <span># Ejes</span>
+                  <InputPcaReps filasEjes={filasEjes} />
+                </div>
               </div>
             </div>
             <div className="flex flex-col items-center border-2 border-gray-200 rounded-md p-2">
               <span>Ejes trídem</span>
               <div className="flex gap-1">
-                <InputPca />
-                <InputPcaReps />
+                {/* Input de carga de eje */}
+                <div className="flex flex-col items-center gap-y-0.5">
+                  <span>Carga</span>
+                  <InputPcaF filasEjes={filasEjes} />
+                </div>
+
+                {/* Input de repeticiones de ejes */}
+                <div className="flex flex-col items-center gap-y-0.5">
+                  <span># Ejes</span>
+                  <InputPcaReps filasEjes={filasEjes} />
+                </div>
               </div>
             </div>
           </form>
