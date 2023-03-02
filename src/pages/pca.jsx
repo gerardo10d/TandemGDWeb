@@ -1,16 +1,47 @@
-import InputPcaF from "components/InputPcaF";
+import InputPca from "components/InputPca";
 import InputPcaReps from "components/InputPcaReps";
+import NadmFatiga from "functions/NadmFatiga";
+import NadmErosion from "functions/NadmErosion";
 
 import React, { useState } from "react";
 
 const Pca = () => {
-  const [k, setK] = useState(0);
-  const [Df, setDf] = useState();
+  const [dovelas, setDovelas] = useState("Sí");
+  const [bermas, setBermas] = useState("No");
+  const [k, setK] = useState("");
+  const [MR, setMR] = useState("");
+  const [h, seth] = useState("");
+  const [Dfatiga, setDfatiga] = useState("");
+  const [Derosion, setDerosion] = useState("");
   const [filasEjes, setfilasEjes] = useState(3);
 
   const enviarResultado = () => {
-    // console.log("El valor del módulo de reacción es: ", k);
-    setDf(2 * k);
+    let dov, ber;
+    if (dovelas === "Sí") {
+      dov = 1;
+    } else {
+      dov = 0;
+    }
+    if (bermas === "Sí") {
+      ber = 1;
+    } else {
+      ber = 0;
+    }
+    const Dfatiga = NadmFatiga(1, 36, MR, k, h, ber);
+    const Derosion = NadmErosion(1, 36, k, h, ber, dov);
+    setDfatiga(Dfatiga);
+    setDerosion(Derosion);
+  };
+
+  const reset = () => {
+    setBermas("No");
+    setDovelas("Sí");
+    setK("");
+    setMR("");
+    seth("");
+    setDfatiga("");
+    setDerosion("");
+    setfilasEjes(3);
   };
 
   return (
@@ -28,10 +59,12 @@ const Pca = () => {
               <label htmlFor="dovelas">
                 Dovelas:
                 <select
-                  defaultValue={"Sí"}
                   className="mx-2 p-1 w-20 border border-gray-400 rounded-md focus:outline-none"
                   name="dovelas"
-                  id="dovelas"
+                  value={dovelas}
+                  onChange={(e) => {
+                    setDovelas(e.target.value);
+                  }}
                 >
                   <option value="Sí">Sí</option>
                   <option value="No">No</option>
@@ -40,10 +73,12 @@ const Pca = () => {
               <label htmlFor="bermas">
                 Bermas:
                 <select
-                  defaultValue={"No"}
                   className="mx-2 p-1 w-20 border border-gray-400 rounded-md focus:outline-none"
                   name="bermas"
-                  id="bermas"
+                  value={bermas}
+                  onChange={(e) => {
+                    setBermas(e.target.value);
+                  }}
                 >
                   <option value="Sí">Sí</option>
                   <option value="No">No</option>
@@ -55,6 +90,7 @@ const Pca = () => {
                 Módulo de reacción:
                 <input
                   required
+                  value={k}
                   className="mx-2 p-1 appearance-none w-20 border border-gray-400 rounded-md focus:outline-none"
                   type="number"
                   name="modReaccion"
@@ -79,11 +115,15 @@ const Pca = () => {
                 Módulo de rotura:
                 <input
                   required
+                  value={MR}
                   className="mx-2 p-1 appearance-none w-20 border border-gray-400 rounded-md focus:outline-none"
                   type="number"
                   name="modRotura"
                   id="modRotura"
                   min="0"
+                  onChange={(e) => {
+                    setMR(e.target.value);
+                  }}
                 />
                 <select
                   className="mx-2 p-1 w-24 border border-gray-400 rounded-md focus:outline-none"
@@ -103,17 +143,20 @@ const Pca = () => {
           <label htmlFor="espesor">
             Espesor de prueba:
             <input
+              value={h}
               required
               className="mx-2 p-1 appearance-none w-20 border border-gray-400 rounded-md focus:outline-none"
               type="number"
               name="espesor"
-              id="espesor"
               min="0"
+              step="any"
+              onChange={(e) => {
+                seth(e.target.value);
+              }}
             />
             <select
               className="mx-2 p-1 w-15 border border-gray-400 rounded-md focus:outline-none"
               name="unidades-h"
-              id="unidades-h"
             >
               <option value="cm">cm</option>
               <option value="in">in</option>
@@ -129,7 +172,8 @@ const Pca = () => {
             </button>
             <button
               className="bg-gray-800 text-white rounded-lg px-3"
-              type="reset"
+              type="button"
+              onClick={reset}
             >
               Reset
             </button>
@@ -194,7 +238,7 @@ const Pca = () => {
                 {/* Input de carga de eje */}
                 <div className="flex flex-col items-center gap-y-0.5">
                   <span>Carga</span>
-                  <InputPcaF filasEjes={filasEjes} />
+                  <InputPca filasEjes={filasEjes} />
                 </div>
 
                 {/* Input de repeticiones de ejes */}
@@ -210,7 +254,7 @@ const Pca = () => {
                 {/* Input de carga de eje */}
                 <div className="flex flex-col items-center gap-y-0.5">
                   <span>Carga</span>
-                  <InputPcaF filasEjes={filasEjes} />
+                  <InputPca filasEjes={filasEjes} />
                 </div>
 
                 {/* Input de repeticiones de ejes */}
@@ -226,7 +270,7 @@ const Pca = () => {
                 {/* Input de carga de eje */}
                 <div className="flex flex-col items-center gap-y-0.5">
                   <span>Carga</span>
-                  <InputPcaF filasEjes={filasEjes} />
+                  <InputPca filasEjes={filasEjes} />
                 </div>
 
                 {/* Input de repeticiones de ejes */}
@@ -247,8 +291,7 @@ const Pca = () => {
                 className="m-2 p-1 appearance-none w-28 border border-gray-400 rounded-md focus:outline-none"
                 type="number"
                 name="dfatiga"
-                id="dfatiga"
-                value={Df}
+                value={Dfatiga}
                 disabled
               />
             </label>
@@ -258,7 +301,7 @@ const Pca = () => {
                 className="m-2 p-1 appearance-none w-28 border border-gray-400 rounded-md focus:outline-none"
                 type="number"
                 name="derosion"
-                id="derosion"
+                value={Derosion}
                 disabled
               />
             </label>

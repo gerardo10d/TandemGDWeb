@@ -1,6 +1,6 @@
 import React from "react";
 
-const InputPcaF = ({ filasEjes }) => {
+const InputPca = ({ filasEjes }) => {
 
   const inputs = [];
 
@@ -18,4 +18,4 @@ const InputPcaF = ({ filasEjes }) => {
   return <>{inputs}</>;
 };
 
-export default InputPcaF;
+export default InputPca;
