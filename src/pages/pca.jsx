@@ -1,4 +1,4 @@
-import InputPcaF from "components/InputPcaF";
+// import InputPcaF from "components/InputPcaF";
 import InputPcaReps from "components/InputPcaReps";
 
 import React, { useState } from "react";
@@ -7,6 +7,39 @@ const Pca = () => {
   const [k, setK] = useState(0);
   const [Df, setDf] = useState();
   const [filasEjes, setfilasEjes] = useState(3);
+  const [inputCargas, setInputCargas] = useState([]);
+
+  const handleInputCargas = (index, event) => {
+    const valores = [...inputCargas];
+    valores[index] = event.target.value;
+    setInputCargas(valores);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    // Realiza cualquier operación que desees con los valores almacenados
+    console.log("Valores de los inputs:", inputCargas);
+  };
+
+  const InputPcaF = ({ filasEjes }) => {
+    const inputs = [];
+
+    for (let i = 0; i < filasEjes; i++) {
+      inputs.push(
+        <input
+          key={i}
+          className="p-1 appearance-none w-20 h-7 border border-gray-400 rounded-md focus:outline-none"
+          type="number"
+          value={inputCargas[i] || ""}
+          onChange={(event) => handleInputCargas(i, event)}
+          min="0"
+        />
+      );
+    }
+
+    return <>{inputs}</>;
+  };
 
   const enviarResultado = () => {
     // console.log("El valor del módulo de reacción es: ", k);
