@@ -4,9 +4,9 @@ import React from "react";
 
 const Layout = ({ children }) => {
   return (
-    <div className="contenedorPrincipal">
+    <div className="flex flex-col h-screen overflow-y-hidden">
       <Header />
-      <main>{children}</main>
+      <main className="h-full overflow-y-scroll">{children}</main>
       <Footer />
     </div>
   );
