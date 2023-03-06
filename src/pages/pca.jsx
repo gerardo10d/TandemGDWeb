@@ -1,5 +1,5 @@
-import InputPca from "components/InputPca";
-import InputPcaReps from "components/InputPcaReps";
+// import InputPca from "components/InputPca";
+// import InputPcaReps from "components/InputPcaReps";
 import NadmFatiga from "functions/NadmFatiga";
 import NadmErosion from "functions/NadmErosion";
 
@@ -13,9 +13,47 @@ const Pca = () => {
   const [h, seth] = useState("");
   const [Dfatiga, setDfatiga] = useState("");
   const [Derosion, setDerosion] = useState("");
-  const [filasEjes, setfilasEjes] = useState(3);
+  const [filasEjes, setfilasEjes] = useState(10);
+  const [inputCargasSimples, setinputCargasSimples] = useState(Array(10).fill(""));
+  const [inputCargasTandem, setinputCargasTandem] = useState(Array(10).fill(""));
+  const [inputCargasTridem, setinputCargasTridem] = useState(Array(10).fill(""));
+  const [inputRepsSimples, setinputRepsSimples] = useState(Array(10).fill(""));
+  const [inputRepsTandem, setinputRepsTandem] = useState(Array(10).fill(""));
+  const [inputRepsTridem, setinputRepsTridem] = useState(Array(10).fill(""));
 
-  const enviarResultado = () => {
+  const manejarCambioinputCargasSimples = (index, event) => {
+    const valores = [...inputCargasSimples];
+    valores[index] = event.target.value;
+    setinputCargasSimples(valores);
+  };
+  const manejarCambioinputCargasTandem = (index, event) => {
+    const valores = [...inputCargasTandem];
+    valores[index] = event.target.value;
+    setinputCargasTandem(valores);
+  };
+  const manejarCambioinputCargasTridem = (index, event) => {
+    const valores = [...inputCargasTridem];
+    valores[index] = event.target.value;
+    setinputCargasTridem(valores);
+  };
+  const manejarCambioinputRepsSimples = (index, event) => {
+    const valores = [...inputRepsSimples];
+    valores[index] = event.target.value;
+    setinputRepsSimples(valores);
+  };
+  const manejarCambioinputRepsTandem = (index, event) => {
+    const valores = [...inputRepsTandem];
+    valores[index] = event.target.value;
+    setinputRepsTandem(valores);
+  };
+  const manejarCambioinputRepsTridem = (index, event) => {
+    const valores = [...inputRepsTridem];
+    valores[index] = event.target.value;
+    setinputRepsTridem(valores);
+  };
+
+  const enviarResultado = (event) => {
+    event.preventDefault();
     let dov, ber;
     if (dovelas === "Sí") {
       dov = 1;
@@ -31,6 +69,13 @@ const Pca = () => {
     const Derosion = NadmErosion(1, 36, k, h, ber, dov);
     setDfatiga(Dfatiga);
     setDerosion(Derosion);
+    console.log("Valores de los inputs:", inputCargasSimples);
+    console.log("Valores de los inputs:", inputRepsSimples);
+    console.log("Valores de los inputs:", inputCargasTandem);
+    console.log("Valores de los inputs:", inputRepsTandem);
+    console.log("Valores de los inputs:", inputCargasTridem);
+    console.log("Valores de los inputs:", inputRepsTridem);
+
   };
 
   const reset = () => {
@@ -214,7 +259,7 @@ const Pca = () => {
               </select>
             </label>
 
-            <label htmlFor="filas-carga">
+            {/* <label htmlFor="filas-carga">
               Número de filas de ejes:
               <input
                 required
@@ -229,7 +274,7 @@ const Pca = () => {
                   setfilasEjes(e.target.value);
                 }}
               />
-            </label>
+            </label> */}
           </div>
           <form className="flex justify-center gap-10" action="">
             <div className="flex flex-col items-center border-2 border-gray-200 rounded-md p-2">
@@ -238,13 +283,38 @@ const Pca = () => {
                 {/* Input de carga de eje */}
                 <div className="flex flex-col items-center gap-y-0.5">
                   <span>Carga</span>
-                  <InputPca filasEjes={filasEjes} />
+                  {/* <InputPca filasEjes={filasEjes} /> */}
+
+                  {Array.from({ length: filasEjes }, (_, index) => (
+                    <input
+                      key={index}
+                      className="p-1 appearance-none w-20 h-7 border border-gray-400 rounded-md focus:outline-none"
+                      type="number"
+                      min="0"
+                      value={inputCargasSimples[index]}
+                      onChange={(event) =>
+                        manejarCambioinputCargasSimples(index, event)
+                      }
+                    />
+                  ))}
                 </div>
 
                 {/* Input de repeticiones de ejes */}
                 <div className="flex flex-col items-center gap-y-0.5">
                   <span># Ejes</span>
-                  <InputPcaReps filasEjes={filasEjes} />
+                  {/* <InputPcaReps filasEjes={filasEjes} /> */}
+                  {Array.from({ length: filasEjes }, (_, index) => (
+                    <input
+                      key={index}
+                      className="p-1 appearance-none w-28 h-7 border border-gray-400 rounded-md focus:outline-none"
+                      type="number"
+                      min="0"
+                      value={inputRepsSimples[index]}
+                      onChange={(event) =>
+                        manejarCambioinputRepsSimples(index, event)
+                      }
+                    />
+                  ))}
                 </div>
               </div>
             </div>
@@ -254,13 +324,38 @@ const Pca = () => {
                 {/* Input de carga de eje */}
                 <div className="flex flex-col items-center gap-y-0.5">
                   <span>Carga</span>
-                  <InputPca filasEjes={filasEjes} />
+                  {/* <InputPca filasEjes={filasEjes} /> */}
+
+                  {Array.from({ length: filasEjes }, (_, index) => (
+                    <input
+                      key={index}
+                      className="p-1 appearance-none w-20 h-7 border border-gray-400 rounded-md focus:outline-none"
+                      type="number"
+                      min="0"
+                      value={inputCargasTandem[index]}
+                      onChange={(event) =>
+                        manejarCambioinputCargasTandem(index, event)
+                      }
+                    />
+                  ))}
                 </div>
 
                 {/* Input de repeticiones de ejes */}
                 <div className="flex flex-col items-center gap-y-0.5">
                   <span># Ejes</span>
-                  <InputPcaReps filasEjes={filasEjes} />
+                  {/* <InputPcaReps filasEjes={filasEjes} /> */}
+                  {Array.from({ length: filasEjes }, (_, index) => (
+                    <input
+                      key={index}
+                      className="p-1 appearance-none w-28 h-7 border border-gray-400 rounded-md focus:outline-none"
+                      type="number"
+                      min="0"
+                      value={inputRepsTandem[index]}
+                      onChange={(event) =>
+                        manejarCambioinputRepsTandem(index, event)
+                      }
+                    />
+                  ))}
                 </div>
               </div>
             </div>
@@ -270,13 +365,38 @@ const Pca = () => {
                 {/* Input de carga de eje */}
                 <div className="flex flex-col items-center gap-y-0.5">
                   <span>Carga</span>
-                  <InputPca filasEjes={filasEjes} />
+                  {/* <InputPca filasEjes={filasEjes} /> */}
+
+                  {Array.from({ length: filasEjes }, (_, index) => (
+                    <input
+                      key={index}
+                      className="p-1 appearance-none w-20 h-7 border border-gray-400 rounded-md focus:outline-none"
+                      type="number"
+                      min="0"
+                      value={inputCargasTridem[index]}
+                      onChange={(event) =>
+                        manejarCambioinputCargasTridem(index, event)
+                      }
+                    />
+                  ))}
                 </div>
 
                 {/* Input de repeticiones de ejes */}
                 <div className="flex flex-col items-center gap-y-0.5">
                   <span># Ejes</span>
-                  <InputPcaReps filasEjes={filasEjes} />
+                  {/* <InputPcaReps filasEjes={filasEjes} /> */}
+                  {Array.from({ length: filasEjes }, (_, index) => (
+                    <input
+                      key={index}
+                      className="p-1 appearance-none w-28 h-7 border border-gray-400 rounded-md focus:outline-none"
+                      type="number"
+                      min="0"
+                      value={inputRepsTridem[index]}
+                      onChange={(event) =>
+                        manejarCambioinputRepsTridem(index, event)
+                      }
+                    />
+                  ))}
                 </div>
               </div>
             </div>
