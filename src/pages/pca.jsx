@@ -102,7 +102,7 @@ const Pca = () => {
           <div className="flex gap-4">
             <div className="flex flex-col items-start gap-2">
               <label htmlFor="dovelas">
-                Dovelas:
+                Dovelas :
                 <select
                   className="mx-2 p-1 w-20 border border-gray-400 rounded-md focus:outline-none"
                   name="dovelas"
@@ -116,7 +116,7 @@ const Pca = () => {
                 </select>
               </label>
               <label htmlFor="bermas">
-                Bermas:
+                Bermas :
                 <select
                   className="mx-2 p-1 w-20 border border-gray-400 rounded-md focus:outline-none"
                   name="bermas"
@@ -132,14 +132,13 @@ const Pca = () => {
             </div>
             <div className="flex flex-col items-start gap-2">
               <label htmlFor="modReaccion">
-                Módulo de reacción:
+                Módulo de reacción :
                 <input
                   required
                   value={k}
                   className="mx-2 p-1 appearance-none w-20 border border-gray-400 rounded-md focus:outline-none"
                   type="number"
                   name="modReaccion"
-                  id="modReaccion"
                   min="0"
                   onChange={(e) => {
                     setK(e.target.value);
@@ -148,7 +147,6 @@ const Pca = () => {
                 <select
                   className="mx-2 p-1 w-24 border border-gray-400 rounded-md focus:outline-none"
                   name="unidadesK"
-                  id="unidadesK"
                 >
                   <option value="MPa/m">MPa/m</option>
                   <option value="pci">pci</option>
@@ -157,14 +155,13 @@ const Pca = () => {
               </label>
 
               <label htmlFor="modRotura">
-                Módulo de rotura:
+                Módulo de rotura :
                 <input
                   required
                   value={MR}
                   className="mx-2 p-1 appearance-none w-20 border border-gray-400 rounded-md focus:outline-none"
                   type="number"
                   name="modRotura"
-                  id="modRotura"
                   min="0"
                   onChange={(e) => {
                     setMR(e.target.value);
@@ -186,7 +183,7 @@ const Pca = () => {
           {/* <div className="flex justify-center gap-8"></div> */}
           {/* <div className="flex justify-center gap-8"></div> */}
           <label htmlFor="espesor">
-            Espesor de prueba:
+            Espesor de prueba :
             <input
               value={h}
               required
@@ -231,11 +228,10 @@ const Pca = () => {
           </h3>
           <div className="flex justify-center gap-10">
             <label htmlFor="unidades-carga">
-              Unidades de la carga:
+              Unidades de la carga :
               <select
                 className="p-1 mx-2 w-20 border border-gray-400 rounded-md focus:outline-none"
                 name="unidades-carga"
-                id="unidades-carga"
               >
                 <option value="ton">ton</option>
                 <option value="kN">kN</option>
@@ -244,7 +240,7 @@ const Pca = () => {
             </label>
 
             <label htmlFor="FSC">
-              Factor de seguridad de carga:
+              Factor de seguridad de carga :
               <select
                 className="p-1 mx-2 w-20 border border-gray-400 rounded-md focus:outline-none"
                 name="FSC"
